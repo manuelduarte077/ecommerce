@@ -1,4 +1,4 @@
-import 'package:ecommerce/screens/home_screen.dart';
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {

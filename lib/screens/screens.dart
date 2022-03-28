@@ -1,1 +1,1 @@
-export 'package:ecommerce/screens/home_screen.dart';
+export 'package:ecommerce/screens/home/home_screen.dart';
