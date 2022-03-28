@@ -1,3 +1,4 @@
+import 'package:ecommerce/errors/error_route.dart';
 import 'package:ecommerce/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +17,7 @@ class AppRouter {
   static Route _errorRoute() {
     return MaterialPageRoute(
       settings: const RouteSettings(name: '/error'),
-      builder: (_) => Scaffold(
-        appBar: AppBar(title: const Text('Error')),
-      ),
+      builder: (_) => const ErrorRoutes(),
     );
   }
 }
