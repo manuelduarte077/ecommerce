@@ -7,7 +7,7 @@ class ErrorRoutes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white38,
+        backgroundColor: Colors.white10,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
