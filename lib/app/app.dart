@@ -1,3 +1,4 @@
+import 'package:ecommerce/config/app_router.dart';
 import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: Scaffold(
-        body: HomeScreen(),
-      ),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }
