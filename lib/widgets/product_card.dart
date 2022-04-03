@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
+  final double leftPosition;
+
+  final bool isWishlist;
 
   const ProductCard({
     Key? key,
-    this.widthFactor = 2.5,
+    this.widthFactor = 2.4,
     required this.product,
+    this.leftPosition = 5,
+    this.isWishlist = false,
   }) : super(key: key);
 
   @override
@@ -30,8 +35,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 60,
+            left: leftPosition,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5,
+              width: widthValue - 5 - leftPosition,
               height: 80,
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(50),
@@ -40,9 +46,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 65,
-            left: 5,
+            left: leftPosition + 5,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5 - 10,
+              width: widthValue - 15 - leftPosition,
               height: 70,
               decoration: const BoxDecoration(
                 color: Colors.black,
@@ -76,7 +82,16 @@ class ProductCard extends StatelessWidget {
                         color: Colors.white,
                         onPressed: () {},
                       ),
-                    )
+                    ),
+                    isWishlist
+                        ? Expanded(
+                            child: IconButton(
+                              icon: const Icon(Icons.remove_circle_outline),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                          )
+                        : SizedBox()
                   ],
                 ),
               ),
