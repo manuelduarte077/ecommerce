@@ -1,4 +1,5 @@
 import 'package:ecommerce/errors/error_route.dart';
+import 'package:ecommerce/models/models.dart';
 import 'package:ecommerce/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +17,11 @@ class AppRouter {
       case PersonScreen.routeName:
         return PersonScreen.route();
       case ProductScreen.routeName:
-        return ProductScreen.route();
+        return ProductScreen.route(product: settings.arguments as Product);
       case WishListScreen.routeName:
         return WishListScreen.route();
       case CatalogScreen.routeName:
-        return CatalogScreen.route();
+        return CatalogScreen.route(category: settings.arguments as Category);
 
       default:
         return _errorRoute();

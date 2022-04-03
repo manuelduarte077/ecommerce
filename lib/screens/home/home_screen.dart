@@ -19,23 +19,49 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: "Unicorn Store"),
+      // appBar: const CustomAppBar(title: "Unicorn Store"),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Container(
+          color: Colors.black,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
+          child: Text(
+            "Unicorn Store",
+            style: Theme.of(context)
+                .textTheme
+                .headline2!
+                .copyWith(color: Colors.white),
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Colors.black, size: 30),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.pushNamed(context, '/wishlist');
+            },
+          ),
+        ],
+        automaticallyImplyLeading: false,
+      ),
       bottomNavigationBar: const CustomNavBar(),
       body: Column(
         children: [
-          Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 1.5,
-                viewportFraction: 0.9,
-                enlargeCenterPage: true,
-                // autoPlay: true,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
-              ),
-              items: Category.categories
-                  .map((category) => HeroCarouselCard(category: category))
-                  .toList(),
+          CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 1.5,
+              viewportFraction: 0.9,
+              enlargeCenterPage: true,
+              // autoPlay: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
             ),
+            items: Category.categories
+                .map((category) => HeroCarouselCard(category: category))
+                .toList(),
           ),
           const SectionTitle(
             title: "Recommended",
