@@ -51,19 +51,17 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: const CustomNavBar(),
       body: Column(
         children: [
-          Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 1.5,
-                viewportFraction: 0.9,
-                enlargeCenterPage: true,
-                // autoPlay: true,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
-              ),
-              items: Category.categories
-                  .map((category) => HeroCarouselCard(category: category))
-                  .toList(),
+          CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 1.5,
+              viewportFraction: 0.9,
+              enlargeCenterPage: true,
+              // autoPlay: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
             ),
+            items: Category.categories
+                .map((category) => HeroCarouselCard(category: category))
+                .toList(),
           ),
           const SectionTitle(
             title: "Recommended",
