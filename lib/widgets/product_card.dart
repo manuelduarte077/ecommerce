@@ -86,12 +86,11 @@ class ProductCard extends StatelessWidget {
                     isWishlist
                         ? Expanded(
                             child: IconButton(
-                              icon: const Icon(Icons.remove_circle_outline),
-                              color: Colors.white,
-                              onPressed: () {},
-                            ),
-                          )
-                        : SizedBox()
+                            icon: const Icon(Icons.remove_circle_outline),
+                            color: Colors.white,
+                            onPressed: () {},
+                          ))
+                        : const SizedBox()
                   ],
                 ),
               ),

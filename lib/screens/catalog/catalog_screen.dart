@@ -4,7 +4,10 @@ import 'package:ecommerce/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CatalogScreen extends StatelessWidget {
-  const CatalogScreen({Key? key, required this.category}) : super(key: key);
+  const CatalogScreen({
+    Key? key,
+    required this.category,
+  }) : super(key: key);
 
   static const String routeName = '/catalog';
 
