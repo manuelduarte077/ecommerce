@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:ecommerce/blocs/wishlist/wishlist_bloc.dart';
-import 'package:ecommerce/models/product_model.dart';
 import 'package:ecommerce/widgets/widgets.dart';
 
 class WishListScreen extends StatelessWidget {
@@ -23,7 +22,7 @@ class WishListScreen extends StatelessWidget {
       appBar: const CustomAppBar(title: "Wish List"),
       bottomNavigationBar: const CustomNavBar(),
       body: BlocBuilder<WishlistBloc, WishlistState>(
-        builder: (context, state) {
+        builder: (_, state) {
           if (state is WishlistLoading) {
             return const Center(
               child: CircularProgressIndicator(),

@@ -26,3 +26,6 @@ class RemoveProductFromWishlist extends WishlistEvent {
   @override
   List<Object> get props => [product];
 }
+
+// Evento para quitar todos los productos de la wishlist
+class RemoveAllProductsFromWishlist extends WishlistEvent {}

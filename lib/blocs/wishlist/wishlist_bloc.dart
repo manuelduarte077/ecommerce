@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
 import '/models/models.dart';
 
 part 'wishlist_event.dart';
@@ -11,6 +12,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
     on<StartWishlist>(_onStartWishlist);
     on<AddProductToWishlist>(_onAddProductToWishlist);
     on<RemoveProductFromWishlist>(_onRemoveProductFromWishlist);
+    on<RemoveAllProductsFromWishlist>(_clearWishlist);
   }
 
   void _onStartWishlist(
@@ -20,7 +22,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
     emit(WishlistLoading());
     try {
       await Future<void>.delayed(const Duration(seconds: 1));
-      emit(WishlistLoaded());
+      emit(const WishlistLoaded());
     } catch (_) {
       emit(WishlistError());
     }
@@ -60,6 +62,20 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
             ),
           ),
         );
+      } on Exception {
+        emit(WishlistError());
+      }
+    }
+  }
+
+  // Borrar todo el contenido de la wishlist
+  void _clearWishlist(
+    RemoveAllProductsFromWishlist event,
+    Emitter<WishlistState> emit,
+  ) {
+    if (state is WishlistLoaded) {
+      try {
+        emit(const WishlistLoaded(wishlist: Wishlist(products: [])));
       } on Exception {
         emit(WishlistError());
       }
