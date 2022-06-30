@@ -80,7 +80,8 @@ class CartScreen extends StatelessWidget {
                     itemCount: const Cart().products.length,
                     itemBuilder: (context, index) {
                       return CartProductCard(
-                          product: const Cart().products[index]);
+                        product: const Cart().products[index],
+                      );
                     },
                   ),
                 ),

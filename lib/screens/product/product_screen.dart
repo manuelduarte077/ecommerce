@@ -43,10 +43,10 @@ class ProductScreen extends StatelessWidget {
                           .read<WishlistBloc>()
                           .add(AddProductToWishlist(product));
 
-                      const snakBar = SnackBar(
+                      const snackBar = SnackBar(
                         content: Text('Added to your Wishlist'),
                       );
-                      ScaffoldMessenger.of(context).showSnackBar(snakBar);
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                   );
                 },
@@ -54,8 +54,10 @@ class ProductScreen extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.white),
                 onPressed: () {},
-                child: Text('ADD TO CART',
-                    style: Theme.of(context).textTheme.headline3!),
+                child: Text(
+                  'ADD TO CART',
+                  style: Theme.of(context).textTheme.headline3!,
+                ),
               ),
             ],
           ),
